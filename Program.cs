@@ -5,12 +5,12 @@
         int K = int.Parse(input[1]);
         string[] population = Console.ReadLine().Split();
         int maxPopulation = 0;
-        for(int i = 1; i < N-K; i++){
+        for(int i = K; i < N-K; i++){
             int sum = 0;
             sum += int.Parse(population[i]);
-            for (int j = 0; j < K; j++){
-                sum += int.Parse(population[i+1]);
-                sum += int.Parse(population[i-1]);
+            for (int j = 1; j < K+1; j++){
+                sum += int.Parse(population[i+j]);
+                sum += int.Parse(population[i-j]);
             }
             if (sum > maxPopulation){
                 maxPopulation = sum;
